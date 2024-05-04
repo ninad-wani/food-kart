@@ -15,26 +15,41 @@ const MenuCard = () => {
                 id: 1,
                 title: "Dal Makhani + 2 Khamiri Roti + 1 Drink",
                 price: 231,
-                rating: '3.5',
-                serves: 1,
                 img: 'https://images.pexels.com/photos/12737916/pexels-photo-12737916.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
             },
             {
                 id: 2,
                 title: "Veg Biryani",
                 price: 135,
-                rating: '4.2',
-                serves: 2,
                 img: 'https://images.pexels.com/photos/14731729/pexels-photo-14731729.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
             },
             {
                 id: 3,
                 title: "Dal Khichdi",
                 price: 160,
-                rating: '3.9',
-                serves: 1,
                 img: 'https://images.pexels.com/photos/6363501/pexels-photo-6363501.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
-            },]
+            },
+        ],
+        "Main Cours": [
+            {
+                id: 4,
+                title: "Dal Makhani + 2 Khamiri Roti + 1 Drink",
+                price: 231,
+                img: 'https://images.pexels.com/photos/12737916/pexels-photo-12737916.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+            },
+            {
+                id: 5,
+                title: "Veg Biryani",
+                price: 135,
+                img: 'https://images.pexels.com/photos/14731729/pexels-photo-14731729.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+            },
+            {
+                id: 6,
+                title: "Dal Khichdi",
+                price: 160,
+                img: 'https://images.pexels.com/photos/6363501/pexels-photo-6363501.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+            },
+        ]
     }
 
     const AddButtonListener = (dish: any) => {
@@ -76,26 +91,15 @@ const MenuCard = () => {
         <div className='menucard_container'>
             <div className='menucard_hotel_dtls'>
                 <div className='hotel_dtls'>
-                    <div style={{ display: 'flex', margin: '0 16px' }}><p>Logo</p><h2>Mannat Restaurant</h2></div>
-                    {/* <p>North Indian, Mughlai, Fast Food</p>
-                    <address>Karol Bagh, New Delhi</address>
-                    <span style={{ color: 'orange' }}>Temporarily closed for dining, will be back soon!</span> */}
+                    <div style={{ display: 'flex', margin: '0 16px' }}>
+                        <p style={{marginRight: '16px'}}>Logo</p>
+                        <h2>Mannat Restaurant</h2></div>
                 </div>
-                {/* <div className='ratings_holder'>
-                    <div className='ratings_icon'>
-                        4.1★
-                    </div>
-                    <div>
-                        983
-                        <p className='all_ratings_title'>All Ratings</p>
-                    </div>
-                </div> */}
             </div>
             <hr />
 
             <div className='menucard_menu'>
                 {Object.keys(options)?.map((item, idx) => {
-                    console.log(options[item])
                     return <div key={idx}>
                         <Accordion defaultExpanded>
                             <AccordionSummary
@@ -106,25 +110,14 @@ const MenuCard = () => {
                                 <strong>{item}</strong>
                             </AccordionSummary>
                             <AccordionDetails>
-                                {options[item]?.map((it: any, idx: any) => {
-                                    console.log(it)
-                                    return <DishItem key={idx} dish={it} cartItem={cartItems[it.id]} AddButtonListener={AddButtonListener} RemoveButtonListener={RemoveButtonListener} />
-                                })}
+                                <div className='dish-items'>
+                                    {options[item]?.map((it: any, idx: any) => {
+                                        return <DishItem key={idx} dish={it} cartItem={cartItems[it.id]} AddButtonListener={AddButtonListener} RemoveButtonListener={RemoveButtonListener} />
+                                    })}
+                                </div>
                             </AccordionDetails>
                         </Accordion>
-
-                        {/* {AddButtonListener && <div className='dish_item_btn_holder'>
-                            <Button
-                                node="button"
-                                style={{
-                                    marginRight: '5px',
-                                    width: '100%'
-                                }}
-                                waves="light"
-                                onClick={() => { AddButtonListener(item) }}
-                            >ADD
-                            </Button>
-                        </div>} */}
+                        <br />
                     </div>
                 })}
             </div >
