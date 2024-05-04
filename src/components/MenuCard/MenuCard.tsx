@@ -1,10 +1,9 @@
 import './MenuCard.css'
 import DishItem from '../DishItem/DishItem'
 import { useState } from 'react';
-import { Button } from 'react-materialize';
 import Footer from '../Footer/Footer';
 import { ExpandMore } from '@material-ui/icons';
-import { Accordion, AccordionSummary, AccordionDetails, AccordionActions } from '@mui/material';
+import { Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
 
 const MenuCard = () => {
 
