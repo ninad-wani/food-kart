@@ -32,7 +32,6 @@ const Items = () => {
     ]
 
     const AddButtonListener = (dish: any) => {
-        console.log('here', dish);
         setCartItems((prevCartItems: any) => {
             const tempCart = { ...prevCartItems };
             if (dish.id in tempCart) {
@@ -59,7 +58,7 @@ const Items = () => {
                     return <DishItem key={idx} dish={item} AddButtonListener={AddButtonListener} />
                 })}
             </div>
-            {Object.keys(cartItems).length > 0 && <Footer cartCount={Object.keys(cartItems).length} />}
+            {Object.keys(cartItems).length > 0 && <Footer amount={cartItems} cartCount={Object.keys(cartItems).length} />}
         </>
     )
 }

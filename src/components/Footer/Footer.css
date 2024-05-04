@@ -23,3 +23,13 @@
     display: flex;
     gap: 10px;
 }
+
+.footer-cart-info {
+    display: flex;
+    gap: 16px;
+}
+
+.footer-cart-price {
+    top: 30%;
+    position: relative;
+}

@@ -22,12 +22,18 @@
 }
 
 .dish_img_holder {
-    width: 14%;
+    width: auto;
+    flex-direction: column;
+    display: flex;
 }
 
 .dish_img_holder img {
-    width: 100%;
+    width: 140px;
     border-radius: 6px;
+}
+
+.mt-2 {
+    margin-top: 14px;
 }
 
 @media (min-width:600px) {
@@ -38,6 +44,6 @@
   
   @media (min-width:801px) {
     .dish_img_holder {
-        width: 14%;
+        width: auto;
     }
   }
