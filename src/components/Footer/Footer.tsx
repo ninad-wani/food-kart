@@ -57,6 +57,7 @@ const Footer = (props: any) => {
                                 <div key={idd} className='cart-item'>
                                     <div className='left'>
                                         <strong>{cart[itm]?.title}</strong>
+                                        <p className='size-guide'>{cart[itm]?.size}</p>
                                     </div>
                                     <div className='right'>
                                         <i>x{cart[itm]?.quantity}</i>

@@ -32,6 +32,10 @@
     border-radius: 6px;
 }
 
+.dish-description {
+    line-height: 1;
+}
+
 .mt-2 {
     margin-top: 14px;
 }
@@ -44,6 +48,9 @@
 @media (min-width:600px) {
     .dish_img_holder {
         width: 28%;
+    }
+    .dish_item_container {
+        line-height: 1;
     }
   }
   

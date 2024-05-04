@@ -40,6 +40,14 @@
   font-size: larger;
 }
 
+.size-guide {
+  margin: 6px;
+}
+
+.dish_dtls_holder h3 {
+  margin-bottom: 6px;
+}
+
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);

@@ -15,18 +15,24 @@ const MenuCard = () => {
                 id: 1,
                 title: "Dal Makhani + 2 Khamiri Roti + 1 Drink",
                 price: 231,
+                size: "200ml",
+                description: 'this is a sample dish description',
                 img: 'https://images.pexels.com/photos/12737916/pexels-photo-12737916.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
             },
             {
                 id: 2,
                 title: "Veg Biryani",
                 price: 135,
+                size: "200ml",
+                description: 'this is a sample dish description',
                 img: 'https://images.pexels.com/photos/14731729/pexels-photo-14731729.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
             },
             {
                 id: 3,
                 title: "Dal Khichdi",
                 price: 160,
+                size: "200ml",
+                description: 'this is a sample dish description',
                 img: 'https://images.pexels.com/photos/6363501/pexels-photo-6363501.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
             },
         ],
@@ -35,18 +41,24 @@ const MenuCard = () => {
                 id: 4,
                 title: "Dal Makhani + 2 Khamiri Roti + 1 Drink",
                 price: 231,
+                size: "200ml",
+                description: 'this is a sample dish description',
                 img: 'https://images.pexels.com/photos/12737916/pexels-photo-12737916.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
             },
             {
                 id: 5,
                 title: "Veg Biryani",
                 price: 135,
+                size: "200ml",
+                description: 'this is a sample dish description',
                 img: 'https://images.pexels.com/photos/14731729/pexels-photo-14731729.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
             },
             {
                 id: 6,
                 title: "Dal Khichdi",
                 price: 160,
+                size: "200ml",
+                description: 'this is a sample dish description',
                 img: 'https://images.pexels.com/photos/6363501/pexels-photo-6363501.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
             },
         ]
