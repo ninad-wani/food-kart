@@ -122,7 +122,8 @@ const MenuCard = () => {
             <hr />
 
             <div className='menucard_menu'>
-                {Object.keys(options)?.map((item: any, idx) => {
+                {options && Object.keys(options)?.map((item: any, idx) => {
+                    const itr: any = options[item]
                     return <div key={idx}>
                         <Accordion defaultExpanded>
                             <AccordionSummary
@@ -134,7 +135,7 @@ const MenuCard = () => {
                             </AccordionSummary>
                             <AccordionDetails>
                                 <div className='dish-items'>
-                                    {options[item]?.map((it: any, idx: any) => {
+                                    {itr?.map((it: any, idx: any) => {
                                         return <DishItem key={idx} dish={it} cartItem={cartItems[it.id]} AddButtonListener={AddButtonListener} RemoveButtonListener={RemoveButtonListener} />
                                     })}
                                 </div>
