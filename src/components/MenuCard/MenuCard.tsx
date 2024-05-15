@@ -1,6 +1,6 @@
 import './MenuCard.css'
 import DishItem from '../DishItem/DishItem'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Footer from '../Footer/Footer';
 import { ExpandMore } from '@material-ui/icons';
 import { Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
@@ -9,60 +9,71 @@ const MenuCard = () => {
 
     const [cartItems, setCartItems]: any = useState({});
 
-    const options: any = {
-        "Main Course": [
-            {
-                id: 1,
-                title: "Dal Makhani + 2 Khamiri Roti + 1 Drink",
-                price: 231,
-                size: "200ml",
-                description: 'this is a sample dish description',
-                img: 'https://images.pexels.com/photos/12737916/pexels-photo-12737916.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
-            },
-            {
-                id: 2,
-                title: "Veg Biryani",
-                price: 135,
-                size: "200ml",
-                description: 'this is a sample dish description',
-                img: 'https://images.pexels.com/photos/14731729/pexels-photo-14731729.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
-            },
-            {
-                id: 3,
-                title: "Dal Khichdi",
-                price: 160,
-                size: "200ml",
-                description: 'this is a sample dish description',
-                img: 'https://images.pexels.com/photos/6363501/pexels-photo-6363501.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
-            },
-        ],
-        "Main Cours": [
-            {
-                id: 4,
-                title: "Dal Makhani + 2 Khamiri Roti + 1 Drink",
-                price: 231,
-                size: "200ml",
-                description: 'this is a sample dish description',
-                img: 'https://images.pexels.com/photos/12737916/pexels-photo-12737916.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
-            },
-            {
-                id: 5,
-                title: "Veg Biryani",
-                price: 135,
-                size: "200ml",
-                description: 'this is a sample dish description',
-                img: 'https://images.pexels.com/photos/14731729/pexels-photo-14731729.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
-            },
-            {
-                id: 6,
-                title: "Dal Khichdi",
-                price: 160,
-                size: "200ml",
-                description: 'this is a sample dish description',
-                img: 'https://images.pexels.com/photos/6363501/pexels-photo-6363501.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
-            },
-        ]
-    }
+    useEffect(() => {
+        fetch("http://3.109.46.163/product/slots")
+            .then(response => response.json())
+            .then(data => {
+                setOptions(data?.items)
+            });
+    }, [])
+
+
+    const [options, setOptions] = useState([])
+
+    // const options: any = {
+    //     "Main Course": [
+    //         {
+    //             id: 1,
+    //             title: "Dal Makhani + 2 Khamiri Roti + 1 Drink",
+    //             price: 231,
+    //             size: "200ml",
+    //             description: 'this is a sample dish description',
+    //             img: 'https://images.pexels.com/photos/12737916/pexels-photo-12737916.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+    //         },
+    //         {
+    //             id: 2,
+    //             title: "Veg Biryani",
+    //             price: 135,
+    //             size: "200ml",
+    //             description: 'this is a sample dish description',
+    //             img: 'https://images.pexels.com/photos/14731729/pexels-photo-14731729.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+    //         },
+    //         {
+    //             id: 3,
+    //             title: "Dal Khichdi",
+    //             price: 160,
+    //             size: "200ml",
+    //             description: 'this is a sample dish description',
+    //             img: 'https://images.pexels.com/photos/6363501/pexels-photo-6363501.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+    //         },
+    //     ],
+    //     "Main Cours": [
+    //         {
+    //             id: 4,
+    //             title: "Dal Makhani + 2 Khamiri Roti + 1 Drink",
+    //             price: 231,
+    //             size: "200ml",
+    //             description: 'this is a sample dish description',
+    //             img: 'https://images.pexels.com/photos/12737916/pexels-photo-12737916.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+    //         },
+    //         {
+    //             id: 5,
+    //             title: "Veg Biryani",
+    //             price: 135,
+    //             size: "200ml",
+    //             description: 'this is a sample dish description',
+    //             img: 'https://images.pexels.com/photos/14731729/pexels-photo-14731729.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+    //         },
+    //         {
+    //             id: 6,
+    //             title: "Dal Khichdi",
+    //             price: 160,
+    //             size: "200ml",
+    //             description: 'this is a sample dish description',
+    //             img: 'https://images.pexels.com/photos/6363501/pexels-photo-6363501.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+    //         },
+    //     ]
+    // }
 
     const AddButtonListener = (dish: any) => {
         setCartItems((prevCartItems: any) => {
@@ -104,14 +115,14 @@ const MenuCard = () => {
             <div className='menucard_hotel_dtls'>
                 <div className='hotel_dtls'>
                     <div style={{ display: 'flex', margin: '0 16px' }}>
-                        <p style={{marginRight: '16px'}}>Logo</p>
+                        <p style={{ marginRight: '16px' }}>Logo</p>
                         <h2>Mannat Restaurant</h2></div>
                 </div>
             </div>
             <hr />
 
             <div className='menucard_menu'>
-                {Object.keys(options)?.map((item, idx) => {
+                {Object.keys(options)?.map((item: any, idx) => {
                     return <div key={idx}>
                         <Accordion defaultExpanded>
                             <AccordionSummary
