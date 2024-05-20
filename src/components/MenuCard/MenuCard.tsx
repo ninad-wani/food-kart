@@ -10,7 +10,7 @@ const MenuCard = () => {
     const [cartItems, setCartItems]: any = useState({});
 
     useEffect(() => {
-        fetch("http://3.109.46.163/product/slots")
+        fetch("http://13.127.162.146/product/slots")
             .then(response => response.json())
             .then(data => {
                 setOptions(data?.items)

@@ -2,7 +2,7 @@ import './DishItem.css';
 
 const DishItem = (props: any) => {
     const { dish, cartItem, AddButtonListener, RemoveButtonListener } = props;
-    console.log(dish.image)
+
     return (
         <>
             <div className='dish_item_container'>

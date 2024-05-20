@@ -18,18 +18,42 @@ const Footer = (props: any) => {
 
     const { cartCount, cart } = props;
     const [cartOpen, setCartOpen] = useState(false);
+    const [phone, setPhone] = useState("")
+
+    const [checkoutOpen, setCheckoutOpen] = useState(false);
     let cartPrice = 0;
     for (let item in cart) {
         cartPrice += cart[item]["price"]
     }
 
     const openCart = () => {
-        console.log(cart)
         setCartOpen(true);
     }
 
     const closeCart = () => {
         setCartOpen(false);
+    }
+
+    const openCheckout = () => {
+        setCheckoutOpen(true);
+    }
+
+    const closeCheckout = () => {
+        setCheckoutOpen(false);
+    }
+
+    const checkout = () => {
+        let data: any = []
+        Object.keys(cart)?.map((item) => {
+            data.push({
+                name: cart[item].name,
+                price: cart[item].price,
+                quantity: cart[item].quantity
+            })
+        })
+        let dt = JSON.stringify(data)
+        window.open(`https://wa.me/+91${phone}?text=${dt}`)
+        window.location.reload()
     }
 
     return (
@@ -41,7 +65,7 @@ const Footer = (props: any) => {
                 </div>
                 <div className='footer-btn-container'>
                     <button onClick={openCart}>View Cart</button>
-                    <button onClick={() => console.log(cart)}>Checkout</button>
+                    <button onClick={openCheckout}>Checkout</button>
                 </div>
             </div>
             <Modal
@@ -69,6 +93,17 @@ const Footer = (props: any) => {
                         );
                     })}
                     <strong style={{float: 'right'}}>Total: ₹{cartPrice}</strong>
+                </Box>
+            </Modal>
+            <Modal
+                open={checkoutOpen}
+                onClose={closeCheckout}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+            >
+                <Box sx={style}>
+                    Number: <input type='text' style={{padding: '10px'}} onChange={(e)=>setPhone(e.target.value)}></input>
+                    <button style={{margin: '10px'}} onClick={checkout}>Send</button>
                 </Box>
             </Modal>
         </div>
